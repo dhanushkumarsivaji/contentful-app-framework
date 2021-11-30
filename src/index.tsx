@@ -3,12 +3,7 @@ import { render } from 'react-dom';
 import { createClient } from 'contentful-management';
 
 import {
-  AppExtensionSDK,
   FieldExtensionSDK,
-  SidebarExtensionSDK,
-  DialogExtensionSDK,
-  EditorExtensionSDK,
-  PageExtensionSDK,
   init,
   locations,
 } from '@contentful/app-sdk';
@@ -18,12 +13,7 @@ import '@contentful/forma-36-fcss/dist/styles.css';
 import '@contentful/forma-36-tokens/dist/css/index.css';
 import './index.css';
 
-import ConfigScreen from './components/ConfigScreen';
-import EntryEditor from './components/EntryEditor';
-import Page from './components/Page';
-import Sidebar from './components/Sidebar';
 import Field from './components/Field';
-import Dialog from './components/Dialog';
 import LocalhostWarning from './components/LocalhostWarning';
 
 if (process.env.NODE_ENV === 'development' && window.self === window.top) {
@@ -54,29 +44,9 @@ if (process.env.NODE_ENV === 'development' && window.self === window.top) {
     // Dont forget to delete the file too :)
     const ComponentLocationSettings = [
       {
-        location: locations.LOCATION_APP_CONFIG,
-        component: <ConfigScreen cma={cma} sdk={sdk as AppExtensionSDK} />,
-      },
-      {
         location: locations.LOCATION_ENTRY_FIELD,
         component: <Field cma={cma} sdk={sdk as FieldExtensionSDK} />,
-      },
-      {
-        location: locations.LOCATION_ENTRY_EDITOR,
-        component: <EntryEditor cma={cma} sdk={sdk as EditorExtensionSDK} />,
-      },
-      {
-        location: locations.LOCATION_DIALOG,
-        component: <Dialog cma={cma} sdk={sdk as DialogExtensionSDK} />,
-      },
-      {
-        location: locations.LOCATION_ENTRY_SIDEBAR,
-        component: <Sidebar cma={cma} sdk={sdk as SidebarExtensionSDK} />,
-      },
-      {
-        location: locations.LOCATION_PAGE,
-        component: <Page cma={cma} sdk={sdk as PageExtensionSDK} />,
-      },
+      }
     ];
 
     // Select a component depending on a location in which the app is rendered.
